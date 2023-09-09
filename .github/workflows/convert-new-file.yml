@@ -24,7 +24,7 @@ jobs:
           # Add other dependencies if necessary
 
       - name: Translate SAS file
-        run: python .github/scripts/translate_script.py # This is where the earlier Python script will reside
+        run: python tsql-convert.py
 
       - name: Commit and push changes
         run: |
