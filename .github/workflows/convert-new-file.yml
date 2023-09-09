@@ -3,7 +3,7 @@ name: Translate SAS files
 on:
   push:
     paths:
-      - "./original-sas-code/*.sas"
+      - "original-sas-code/*.sas"
 
 jobs:
   translate:
@@ -30,6 +30,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add path_to_folder/*.sas  # Adjust the path accordingly
+          git add modified-sas-code/*.sas  # Adjust the path accordingly
           git commit -m "Translated SAS files" || echo "No changes to commit"
           git push
