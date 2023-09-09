@@ -6,9 +6,9 @@ proc sql;
     create table work.mydata as
     select * from connection to odbc
     (
-        SELECT * FROM database.schema.table1
-        INNER JOIN database.schema.table2
-        ON database.schema.table1.id = database.schema.table2.id
+        SELECT * FROM database.table1
+        INNER JOIN database.table2
+        ON database.table1.id = database.table2.id
     );
     
     disconnect from odbc;
