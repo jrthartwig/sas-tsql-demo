@@ -1,0 +1,35 @@
+name: Translate SAS files
+
+on:
+  push:
+    paths:
+      - "path_to_folder/*.sas" # replace 'path_to_folder' with the folder where .sas files are added
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Add other dependencies if necessary
+
+      - name: Translate SAS file
+        run: python .github/scripts/translate_script.py # This is where the earlier Python script will reside
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add path_to_folder/*.sas  # Adjust the path accordingly
+          git commit -m "Translated SAS files" || echo "No changes to commit"
+          git push
