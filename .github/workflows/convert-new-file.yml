@@ -3,7 +3,7 @@ name: Translate SAS files
 on:
   push:
     paths:
-      - "path_to_folder/*.sas" # replace 'path_to_folder' with the folder where .sas files are added
+      - "./original-sas-code/*.sas"
 
 jobs:
   translate:
