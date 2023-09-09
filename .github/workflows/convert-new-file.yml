@@ -30,6 +30,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add modified-sas-code/*.sas  # Adjust the path accordingly
+          git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/jrthartwig/sas-tsql-demo.git
           git commit -m "Translated SAS files" || echo "No changes to commit"
           git push
